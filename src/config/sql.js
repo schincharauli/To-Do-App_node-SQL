@@ -14,3 +14,5 @@ export const createTable = async () => {
     "CREATE TABLE IF NOT EXISTS todos(id SERIAL PRIMARY KEY, task TEXT, completed Boolean)"
   );
 };
+
+export default pool;
