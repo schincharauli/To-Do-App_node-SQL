@@ -1,6 +1,6 @@
 import pool from "../config/sql.js";
 
-export const getalltasks = async (_, res) => {
+export const getAlltasks = async (_, res) => {
   try {
     const resultQuery = await pool.query("SELECT * FROM todos");
     const rows = resultQuery.rows;
