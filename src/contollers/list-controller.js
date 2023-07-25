@@ -46,4 +46,16 @@ export const deleteCompletedTasks = async (req, res) => {
   }
 };
 
-export const updateTasks = async (req, res) => {};
+export const updateTasks = async (req, res) => {
+  const id = +req.params.id;
+  const { completed } = req.body;
+  try {
+    await pool.query("UPDATE todos SET completed = $1 WHERE id = $2", [
+      completed,
+      id,
+    ]);
+    return res.status(204).json({ message: "Updated successfully" });
+  } catch (error) {
+    return res.status(401).json(error);
+  }
+};
