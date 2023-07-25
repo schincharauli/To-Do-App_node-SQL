@@ -23,3 +23,16 @@ export const createTasks = async (req, res) => {
     return res.status(401).json(error);
   }
 };
+
+export const deleteTasks = async (req, res) => {
+  const id = +req.params.id;
+  try {
+    const resultQuery = await pool.query("DELETE FROM tasks WHERE id = $1", [
+      id,
+    ]);
+    const row = resultQuery.rows[0];
+    return res.status(201).json({ message: "Task deleted successfully" });
+  } catch (error) {
+    return res.status(401).json(error);
+  }
+};
