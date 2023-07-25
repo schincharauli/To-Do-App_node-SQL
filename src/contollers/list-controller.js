@@ -26,9 +26,10 @@ export const createTasks = async (req, res) => {
 
 export const deleteTasks = async (req, res) => {
   const id = +req.params.id;
+
   try {
-    await pool.query("DELETE FROM tasks WHERE id = $1", [id]);
-    return res.status(201).json({ message: "Task deleted successfully" });
+    await pool.query("DELETE FROM todos WHERE id = $1", [id]);
+    return res.status(200).json({ message: "Task deleted successfully" });
   } catch (error) {
     return res.status(401).json(error);
   }
