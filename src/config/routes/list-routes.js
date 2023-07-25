@@ -1,9 +1,8 @@
 import express from "express";
-import { Router as expressRouter } from "express";
-
+import { Router } from "express";
 import { createTasks, getAllTasks } from "../../contollers/list-controller.js";
 
-const listRouter = expressRouter;
+const listRouter = express.Router();
 
 listRouter.get("/list", getAllTasks);
 listRouter.post("/list", createTasks);
