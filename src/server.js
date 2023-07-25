@@ -2,7 +2,7 @@ import bodyParser from "body-parser";
 import pool, { createTable } from "./config/sql.js";
 import express from "express";
 import cors from "cors";
-import { listRouter, createTasks } from "./config/routes/list-routes.js";
+import listRouter from "./config/routes/list-routes.js";
 
 const app = express();
 
@@ -19,7 +19,6 @@ async function init() {
 
     app.use("/api", listRouter);
 
-    app.post("/api/list", createTasks);
     app.listen(3000);
   }
 }
