@@ -1,4 +1,5 @@
 import express from "express";
+import { Router as expressRouter } from "express";
 import pool, { createTable } from "./config/sql.js";
 import bodyParser from "body-parser";
 import cors from "cors";
