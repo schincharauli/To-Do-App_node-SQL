@@ -9,6 +9,6 @@ const listRouter = express.Router();
 
 listRouter.get("/list", getAllTasks);
 listRouter.post("/list", createTasks);
-listRouter.delete("/list:id", deleteTasks);
+listRouter.delete("/list/:id", deleteTasks);
 
 export default listRouter;
